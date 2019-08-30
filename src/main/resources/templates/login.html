@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="col-md-3">
+    <form class="form-horizontal" action="/login" method="post">
+        <div class="form-group text-center">
+            <label class="radio-inline">
+                <input type="radio" name="optionsRole" id="student"
+                       value="1" checked>学生
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optionsRole" id="teacher"
+                       value="2">教师
+            </label>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <div class="input-group">
+                    <input name="username" required id="inputUsername"
+                           class="form-control" placeholder="username">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <div class="input-group">
+                    <input type="password" name="password" required id="inputpassword"
+                           class="form-control" placeholder="password">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <input type="submit" value="登录"
+                   class="btn btn-success btn-block">
+        </div>
+    </form>
+    <div>
+        <p th:text="${message}"></p>
+    </div>
+</div>
+</body>
+</html>

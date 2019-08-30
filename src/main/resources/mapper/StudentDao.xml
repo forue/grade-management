@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="iweb212.student.grademanagement.dao.StudentDao">
+    <resultMap type="student" id="studentResult">
+        <id property="sid" column="sid" />
+        <result property="sname" column="sname"/>
+        <result property="sage" column="sage"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="studentResult">
+		select sid, sname, sage from student
+	</select>
+
+    <select id="findById" parameterType="int" resultMap="studentResult">
+		select sid, sname, sage from student where sid = #{sid}
+	</select>
+    <insert id="insert" parameterType="student" useGeneratedKeys="true"
+            keyColumn="sid">
+		insert into student(sname, sage)
+		values (#{sname}, #{sage})
+	</insert>
+</mapper>
